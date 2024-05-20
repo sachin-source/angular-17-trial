@@ -3,11 +3,12 @@ import { ProductsService } from '../services/products.service';
 import { Product, Products } from '../../types';
 import { ProductComponent } from '../components/product/product.component';
 import { PaginatorModule } from 'primeng/paginator'
+import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProductComponent, PaginatorModule],
+  imports: [ProductComponent, PaginatorModule, EditPopupComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

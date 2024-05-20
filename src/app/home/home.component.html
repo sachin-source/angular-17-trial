@@ -15,3 +15,8 @@
     (onPageChange)="onPageChange($event)"
     ></p-paginator>
 </div>
+
+<!-- Edit Product -->
+<app-edit-popup [product]="product" [display]="displayEditPopup" (confirm)="confirmEditPopup($event)" header="Edit Product" ></app-edit-popup>
+
+<app-edit-popup [product]="product" [display]="displayAddPopup" (confirm)="confirmAddPopup($event)" header="Add Product" ></app-edit-popup>
