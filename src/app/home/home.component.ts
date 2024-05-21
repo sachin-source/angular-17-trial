@@ -18,6 +18,13 @@ export class HomeComponent {
   products: Product[] = [];
   totalRecords: number = 0;
   rows: number = 5;
+  displayEditPopup:boolean = false;
+  displayAddPopup:boolean = false;
+
+  onConfirmEdit(product: Product){
+    this.editProduct(product, product.id)
+    this.displayEditPopup = false;
+  }
 
   onPageChange(event: any) {
     this.fetchProducts(event.page, event.rows)
