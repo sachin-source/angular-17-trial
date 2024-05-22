@@ -21,8 +21,16 @@ export class HomeComponent {
   displayEditPopup:boolean = false;
   displayAddPopup:boolean = false;
 
+  selectedProduct: Product = {
+    id: 0,
+    name: '',
+    image: '',
+    price: '',
+    rating: 0
+  }
+
   onConfirmEdit(product: Product){
-    this.editProduct(product, product.id)
+    this.editProduct(product, this.selectedProduct.id)
     this.displayEditPopup = false;
   }
 
