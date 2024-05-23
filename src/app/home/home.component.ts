@@ -21,6 +21,15 @@ export class HomeComponent {
   displayEditPopup:boolean = false;
   displayAddPopup:boolean = false;
 
+  toggleEditPopup(product: Product){
+    this.selectedProduct = product;
+    this.displayEditPopup = true;
+  }
+
+  toggleAddPopup(){
+    this.displayAddPopup = true;
+  }
+
   selectedProduct: Product = {
     id: 0,
     name: '',
@@ -30,8 +39,16 @@ export class HomeComponent {
   }
 
   onConfirmEdit(product: Product){
+    if(!this.selectedProduct.id){
+      return;
+    }
     this.editProduct(product, this.selectedProduct.id)
     this.displayEditPopup = false;
+  }
+
+  onConfirmAdd(product:Product){
+    this.addProduct(product)
+    this.displayAddPopup = false;
   }
 
   onPageChange(event: any) {
@@ -51,6 +68,18 @@ export class HomeComponent {
 
   editProduct(product: Product, id: number) {
     this.productsService.editProduct(`http://localhost:3000/clothes/${id}`, product).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.fetchProducts(0, this.rows);
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+  }
+
+  addProduct(product: Product) {
+    this.productsService.addProduct(`http://localhost:3000/clothes`, product).subscribe({
       next: (data) => {
         console.log(data);
         this.fetchProducts(0, this.rows);

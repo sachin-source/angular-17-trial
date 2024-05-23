@@ -26,7 +26,7 @@ export interface Products {
 }
 
 export interface Product {
-    id?: string,
+    id?: number,
     price : string,
     name: string,
     image: string,
