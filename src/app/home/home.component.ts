@@ -4,11 +4,12 @@ import { Product, Products } from '../../types';
 import { ProductComponent } from '../components/product/product.component';
 import { PaginatorModule } from 'primeng/paginator'
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProductComponent, PaginatorModule, EditPopupComponent],
+  imports: [ProductComponent, PaginatorModule, EditPopupComponent, ButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -26,6 +27,9 @@ export class HomeComponent {
     this.displayEditPopup = true;
   }
 
+  toggleDeletePopup(product: Product){
+    
+  }
   toggleAddPopup(){
     this.displayAddPopup = true;
   }
