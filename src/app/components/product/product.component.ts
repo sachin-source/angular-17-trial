@@ -40,6 +40,10 @@ export class ProductComponent {
     this.delete.emit(this.product);
   }
 
-  ngOnInit() {
+  truncateName(name:string){
+    if(name.length > 16) {
+      return name.slice(0,16) + "..."
+    }
+    return name;
   }
 }

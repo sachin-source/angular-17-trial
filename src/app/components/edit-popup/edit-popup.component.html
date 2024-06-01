@@ -1,6 +1,6 @@
 <p-dialog [header]="header" [(visible)]="display" [modal]="true" [closable]="false" >
 
-    <div class="column gap-1">
+    <div class="column gap-1 form-wrapper">
         <div class="row gap-05">
             <span class="price-label">Name:</span>
             <input type="text" [(ngModel)]="product.name" />
@@ -15,7 +15,7 @@
             <input type="text" [(ngModel)]="product.image" >
         </div>
 
-        <p-rating [(ngModel)]="product.rating" iconCancelClass="hidden" ></p-rating>
+        <p-rating [(ngModel)]="product.rating" iconCancelClass="hidden" class="rating" ></p-rating>
     </div>
     <p-footer>
     <button type="button" pButton icon="pi pi-check" (click)="onConfirm()" label="Confirm"> </button>

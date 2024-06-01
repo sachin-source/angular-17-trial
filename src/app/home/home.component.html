@@ -1,9 +1,9 @@
 <div class="column gap-1">
 
     <!-- Add Product Button -->
-    <button type="button" pButton icon="pi pi-plus" (click)="toggleAddPopup()" label="Add Product" ></button>
+    <button type="button" pButton icon="pi pi-plus" (click)="toggleAddPopup()" label="Add Product" class="add-product-btn"></button>
     <!-- Products Section -->
-    <div class="row wrap gap-1 space-between">
+    <div class="row wrap gap-2 space-between">
         @for (product of products; track product.name){
             <app-product (edit)="toggleEditPopup($event)" (delete)="toggleDeletePopup($event)" [product]="product" ></app-product>
         }
