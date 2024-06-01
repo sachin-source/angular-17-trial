@@ -6,11 +6,13 @@ import { ButtonModule } from 'primeng/button';
 import { ConfirmPopupModule } from 'primeng/confirmpopup'
 import { ToastModule } from 'primeng/toast'
 import { ConfirmationService } from 'primeng/api';
+import { PricePipe } from '../../pipes/price.pipe';
+import { TruncateNamePipe } from '../../pipes/truncate-name.pipe';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RatingModule, FormsModule, ButtonModule, ConfirmPopupModule],
+  imports: [RatingModule, FormsModule, ButtonModule, ConfirmPopupModule, PricePipe, TruncateNamePipe],
   providers: [ConfirmationService],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
@@ -38,12 +40,5 @@ export class ProductComponent {
   }
   deleteProduct(){
     this.delete.emit(this.product);
-  }
-
-  truncateName(name:string){
-    if(name.length > 16) {
-      return name.slice(0,16) + "..."
-    }
-    return name;
   }
 }
